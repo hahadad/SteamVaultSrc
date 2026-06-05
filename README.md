@@ -6,7 +6,7 @@ Open-source Steam account switcher and library manager. This repo contains the s
 
 Grab the latest installer from the [Releases](../../releases) page:
 
-- **Windows** — `SteamVault-Setup-x64.exe` → run it. Installs to `C:\Users\<you>\AppData\Local\Programs\SteamVault\` (or wherever you point it) and creates Start Menu / Desktop shortcuts. Uninstall via `Uninstall SteamVault.exe` or *Add/Remove Programs*.
+- **Windows** - `SteamVault-Setup-x64.exe` → run it. Installs to `C:\Users\<you>\AppData\Local\Programs\SteamVault\` (or wherever you point it) and creates Start Menu / Desktop shortcuts. Uninstall via `Uninstall SteamVault.exe` or *Add/Remove Programs*.
 
 No Node, no build step, no config. Just run the installer and launch SteamVault.
 
@@ -38,23 +38,21 @@ delete it manually if you want a clean wipe.
 
 ## Build from source
 
-You only need this if you want to package your own installer.
+You only need this if you want to run the app locally or build your own installer.
 
 ```bash
-git clone https://github.com/hahadad/SteamVaultSrc.git
+git clone https://github.com/<your-name>/SteamVaultSrc.git
 cd SteamVaultSrc
 npm install
 
 # Run unpackaged
 npm start
 
-# Package binaries
-npm run package:win     # Windows x64
-npm run package:linux   # Linux x64
-npm run package:mac     # macOS x64
+# Build Windows installer
+npm run dist:win
 ```
 
-Output lands in `release/`.
+Output lands in `dist/`.
 
 ### Point it at your own web app
 
