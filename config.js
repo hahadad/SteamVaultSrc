@@ -31,7 +31,6 @@ function loadConfig() {
   }
   const merged = { ...DEFAULTS, ...bundled, ...(userFile || {}) };
 
-  .
   if (process.env.STEAMVAULT_URL) merged.appUrl = process.env.STEAMVAULT_URL;
   if (process.env.STEAMVAULT_WINDOW_TITLE)
     merged.windowTitle = process.env.STEAMVAULT_WINDOW_TITLE;
