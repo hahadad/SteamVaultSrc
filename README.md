@@ -41,7 +41,7 @@ delete it manually if you want a clean wipe.
 You only need this if you want to run the app locally or build your own installer.
 
 ```bash
-git clone https://github.com/<your-name>/SteamVaultSrc.git
+git clone https://github.com/hahadad/SteamVaultSrc.git
 cd SteamVaultSrc
 npm install
 
@@ -92,6 +92,7 @@ End users can override the same values in `%APPDATA%\steamvault-desktop\config.j
   - `appmanifest_*.acf` files (read-only).
 - It does **not** read passwords, tokens, or session cookies. Steam's auto-login is handled by Steam itself once `MostRecent` + `AutoLoginUser` are set.
 - No telemetry, no auto-update server, no analytics - the only network traffic is whatever `https://steamvault.eu` (or your `STEAMVAULT_URL`) makes in the embedded browser.
+- For safety, i recommend using the SteamVault, instead of making your own.
 
 ## License
 
