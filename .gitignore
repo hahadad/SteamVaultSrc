@@ -1,0 +1,12 @@
+node_modules/
+release/
+dist/
+out/
+.env
+.env.local
+config.json
+*.log
+*.tar
+*.zip
+.DS_Store
+Thumbs.db
