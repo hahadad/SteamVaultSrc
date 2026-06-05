@@ -1,6 +1,6 @@
 # SteamVault Desktop
 
-Open-source Steam account switcher and library manager. This repo contains the source for the **SteamVault desktop app** — an Electron shell around [steamvault.eu](https://steamvault.eu) with a native bridge to the local Steam install (read `loginusers.vdf`, scan installed games, swap accounts, launch games).
+Open-source Steam account switcher and library manager. This repo contains the source for the **SteamVault desktop app** - an Electron shell around [steamvault.eu](https://steamvault.eu) with a native bridge to the local Steam install (read `loginusers.vdf`, scan installed games, swap accounts, launch games).
 
 ## Install (end users)
 
@@ -24,7 +24,7 @@ SteamVault\
 ```
 
 User data (settings, the per-user `config.json` override, logs) lives in
-`%APPDATA%\steamvault-desktop\`. The uninstaller does not touch that folder —
+`%APPDATA%\steamvault-desktop\`. The uninstaller does not touch that folder -
 delete it manually if you want a clean wipe.
 
 ## What it does
@@ -77,7 +77,7 @@ End users can override the same values in `%APPDATA%\steamvault-desktop\config.j
 
 | File | Purpose |
 | --- | --- |
-| `main.cjs` | Electron main process — creates the BrowserWindow, registers IPC handlers. |
+| `main.cjs` | Electron main process - creates the BrowserWindow, registers IPC handlers. |
 | `preload.cjs` | Exposes `window.steamvaultDesktop` to the web app (contextIsolation on). |
 | `switcher.cjs` | Native Steam logic: find install, parse `loginusers.vdf`, kill/relaunch Steam, scan installed apps. |
 | `config.js` | Merges defaults + bundled `config.json` + per-user override + env vars. |
@@ -85,13 +85,13 @@ End users can override the same values in `%APPDATA%\steamvault-desktop\config.j
 
 ## Security
 
-- `contextIsolation: true`, `nodeIntegration: false` — the web app never touches Node directly, only the whitelisted IPC channels in `preload.cjs`.
+- `contextIsolation: true`, `nodeIntegration: false` - the web app never touches Node directly, only the whitelisted IPC channels in `preload.cjs`.
 - The switcher only reads/writes:
   - `<Steam>\config\loginusers.vdf` (with a one-time `.steamvault.bak` backup).
   - `HKCU\Software\Valve\Steam\AutoLoginUser` and `RememberPassword` (Windows only).
   - `appmanifest_*.acf` files (read-only).
 - It does **not** read passwords, tokens, or session cookies. Steam's auto-login is handled by Steam itself once `MostRecent` + `AutoLoginUser` are set.
-- No telemetry, no auto-update server, no analytics — the only network traffic is whatever `https://steamvault.eu` (or your `STEAMVAULT_URL`) makes in the embedded browser.
+- No telemetry, no auto-update server, no analytics - the only network traffic is whatever `https://steamvault.eu` (or your `STEAMVAULT_URL`) makes in the embedded browser.
 
 ## License
 
