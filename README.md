@@ -8,7 +8,7 @@ Grab the latest installer from the [Releases](../../releases) page:
 
 - **Windows** — `SteamVault-Setup-x64.exe` → run it. Installs to `C:\Users\<you>\AppData\Local\Programs\SteamVault\` (or wherever you point it) and creates Start Menu / Desktop shortcuts. Uninstall via `Uninstall SteamVault.exe` or *Add/Remove Programs*.
 
-No Node, no build step, no config — just run the installer and launch SteamVault.
+No Node, no build step, no config. Just run the installer and launch SteamVault.
 
 ### What the installer drops on disk
 
@@ -31,9 +31,9 @@ delete it manually if you want a clean wipe.
 
 - Loads `https://steamvault.eu` inside an Electron window.
 - Exposes a small native bridge to the page through `preload.cjs`:
-  - `getInstalledApps()` — scans every Steam library folder for `appmanifest_*.acf` and reports which appids are fully installed.
-  - `getCurrentSteamId()` — reads `loginusers.vdf` + (on Windows) `HKCU\Software\Valve\Steam\AutoLoginUser`.
-  - `switchAndLaunch(steamid64, appid)` — kills Steam, flips `MostRecent` in `loginusers.vdf`, writes `AutoLoginUser` + `RememberPassword`, and relaunches Steam with `-applaunch <appid>`.
+  - `getInstalledApps()` - scans every Steam library folder for `appmanifest_*.acf` and reports which appids are fully installed.
+  - `getCurrentSteamId()` - reads `loginusers.vdf` + (on Windows) `HKCU\Software\Valve\Steam\AutoLoginUser`.
+  - `switchAndLaunch(steamid64, appid)` - kills Steam, flips `MostRecent` in `loginusers.vdf`, writes `AutoLoginUser` + `RememberPassword`, and relaunches Steam with `-applaunch <appid>`.
 - Backs up `loginusers.vdf` to `loginusers.vdf.steamvault.bak` once, before the first rewrite.
 
 ## Build from source
@@ -41,7 +41,7 @@ delete it manually if you want a clean wipe.
 You only need this if you want to package your own installer.
 
 ```bash
-git clone https://github.com/<you>/SteamVaultSrc.git
+git clone https://github.com/hahadad/SteamVaultSrc.git
 cd SteamVaultSrc
 npm install
 
