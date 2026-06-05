@@ -1,0 +1,17 @@
+{
+  "name": "steamvault-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SteamVault Account Switcher - open-source Steam account switcher and library manager.",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "package:linux": "electron-packager . SteamVault --platform=linux --arch=x64 --out=release --overwrite --ignore='^/release'",
+    "package:win": "electron-packager . SteamVault --platform=win32 --arch=x64 --out=release --overwrite --ignore='^/release'",
+    "package:mac": "electron-packager . SteamVault --platform=darwin --arch=x64 --out=release --overwrite --ignore='^/release'"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "@electron/packager": "^18.3.5"
+  }
+}
