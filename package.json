@@ -6,12 +6,37 @@
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "package:linux": "electron-packager . SteamVault --platform=linux --arch=x64 --out=release --overwrite --ignore='^/release'",
-    "package:win": "electron-packager . SteamVault --platform=win32 --arch=x64 --out=release --overwrite --ignore='^/release'",
-    "package:mac": "electron-packager . SteamVault --platform=darwin --arch=x64 --out=release --overwrite --ignore='^/release'"
+    "dist:win": "electron-builder --win nsis",
+    "dist": "electron-builder"
   },
   "devDependencies": {
     "electron": "^33.0.0",
-    "@electron/packager": "^18.3.5"
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.steamvault.desktop",
+    "productName": "SteamVault",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "**/*",
+      "!release{,/**}",
+      "!dist{,/**}"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico"
+    }
   }
 }
